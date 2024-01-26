@@ -9,7 +9,7 @@
             </div>
 
             @if (Route::current()->getName() != 'forgot.create')
-            <div class="p-2"><a href="{{route('login')}}">Sing-In</a></div>
+            <div class="p-2"><a href="{{route('login')}}">Sign-In</a></div>
             @endif
 
         </div>

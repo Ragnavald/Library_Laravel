@@ -22,10 +22,10 @@
                                     <div class="btn-group" role="group">
                                         @if (\Auth::User()->is_admin)
                                         <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">Edit</a>
-                                        <form action="{{ route('books.destroy', $book->id) }}" method="post">
+                                        <form action="{{ route('books.destroy', $book->id) }}" method="post" style="margin-block-end:0!important">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir este livro?')">Delete</button>
+                                            <button type="submit" class="btn btn-danger" {{-- onclick="return confirm('Tem certeza que deseja excluir este livro?')" --}}>Delete</button>
                                         </form>
                                         @endif
                                         <a {{-- href="{{ /* route('books.reserve', $book->id) */ }}" --}} class="btn btn-success">Reserving</a>
