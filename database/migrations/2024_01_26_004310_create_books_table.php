@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('qty');
             $table->string('img')->nullable();
             $table->string('isbn');
+            $table->string('realease_date');
             $table->timestamps();
 
         });

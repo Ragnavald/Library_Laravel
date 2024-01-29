@@ -9,32 +9,32 @@
                 <div class="container mb-4 d-flex align-items-center justify-content-center">
                     <h2 class="text-uppercase text-white">Books</h2>
                 </div>
-                <div class="row">
-                    @foreach ($books as $book)
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <img src="{{ $book->img }}" class="card-img-top" alt="book cover">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $book->title }}</h5>
-                                    <p class="card-text">Author: {{ $book->author }}</p>
-                                    <p class="card-text">Barcode: {{ $book->barcode }}</p>
-                                    <p class="card-text">Quantity: {{ $book->qty }}</p>
-                                    <div class="btn-group" role="group">
-                                        @if (\Auth::User()->is_admin)
-                                        <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">Edit</a>
-                                        <form action="{{ route('books.destroy', $book->id) }}" method="post" style="margin-block-end:0!important">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger" {{-- onclick="return confirm('Tem certeza que deseja excluir este livro?')" --}}>Delete</button>
-                                        </form>
-                                        @endif
-                                        <a {{-- href="{{ /* route('books.reserve', $book->id) */ }}" --}} class="btn btn-success">Reserving</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+       <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <button class="btn btn-primary" id="btnAddBook">Adicionar Livro</button>
+        <button class="btn btn-warning" id="btnEditBook">Editar Livro</button>
+        <button class="btn btn-danger" id="btnDeleteBook">Excluir Livro</button>
+    </nav>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Filtros</h5>
+            <div class="form-group">
+                <label for="filtroCategoria">Categoria:</label>
+                <select class="form-control" id="filtroCategoria">
+                    <option>Todas</option>
+                    <option>Romance</option>
+                    <option>Ficção Científica</option>
+                    <option>Mistério</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="filtroAutor">Autor:</label>
+                <input type="text" class="form-control" id="filtroAutor">
+            </div>
+            <button type="button" class="btn btn-primary">Aplicar Filtros</button>
+        </div>
+    </div>
+
             </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ class Book extends Model
         'supplier_id',
         'qty',
         'img',
-        'isbn'
+        'isbn',
+        'realease_date'
        ];
 }
